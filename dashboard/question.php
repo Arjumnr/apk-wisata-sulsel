@@ -95,7 +95,7 @@ require_once("./templates/sidebar.php");
                 console.log("A")
                 $('#ajaxModal').modal('show');
                 $('#formsKu').trigger("reset");
-                $("#title").html("Input Data User");
+                $("#title").html("Input Data Pertanyaan");
                 $("#saveBtn").show();
                 $("#updateBtn").hide();
             })
@@ -113,10 +113,7 @@ require_once("./templates/sidebar.php");
                 if (jsonData.status == "success") {
                     $('#ajaxModal').modal('show');
                     $('#title').html('Update Data');
-                    $('#username').val(jsonData.data.username);
-                    $('#role').val(jsonData.data.role).trigger('change');
-                    $('#password').hide();
-                    $('#formPassword').hide();
+                    $('#pertanyaan').val(jsonData.data.pertanyaan);
                     $('#id').val(jsonData.data.id);
                     $("#saveBtn").hide();
                     $("#updateBtn").show();

@@ -10,14 +10,14 @@ if ($_POST['pertanyaan'] == "") {
 $result = mysqli_query($connect, "SELECT * FROM questions WHERE pertanyaan='" . $_POST['pertanyaan'] . "'");
 //cek apakah data ditemukan
 if (mysqli_num_rows($result) <= 1) {
-        $_POST['password'] = md5($_POST['password']);
+        // $_POST['password'] = md5($_POST['password']);
         //mengambil data dari dari variable result merubah jadi array
         $result = update("questions", "pertanyaan='" . $_POST['pertanyaan'] . "' WHERE id='" . $_GET['id'] . "'");
         //cek password
         if ($result) {
-                echo json_encode(array("status" => "success", "message" => "Berhasil Update User"));
+                echo json_encode(array("status" => "success", "message" => "Berhasil Update Pertanyaan"));
         } else {
-                echo json_encode(array("status" => "error", "message" => "Gagal Update User"));
+                echo json_encode(array("status" => "error", "message" => "Gagal Update Pertanyaan"));
         }
 } else {
         echo json_encode(array("status" => "error", "message" => "pertanyaan Sudah Ada", "data" => mysqli_num_rows($result)));

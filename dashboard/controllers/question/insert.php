@@ -7,17 +7,10 @@ if ($_POST['pertanyaan'] == "") {
         return;
 }
 
-$result = mysqli_query($connect, "SELECT * FROM questions WHERE pertanyaan='" . $_POST['pertanyaan'] . "'");
-//cek apakah data ditemukan
-if (mysqli_num_rows($result) <= 1) {
-        //mengambil data dari dari variable result merubah jadi array
-        $result = tambah("questions", "pertanyaan='" . $_POST['pertanyaan'] . "' ");
-        //cek password
-        if ($result) {
-                echo json_encode(array("status" => "success", "message" => "Berhasil Tambah Pertanyaan"));
-        } else {
-                echo json_encode(array("status" => "error", "message" => "Gagal Tambah Pertanyaan"));
-        }
+//mengambil data dari dari variable result merubah jadi array
+$result = tambah("questions", "('','" . $_POST['pertanyaan'] . "')");
+if ($result) {
+        echo json_encode(array("status" => "success", "message" => "Berhasil Tambah Pertanyaan"));
 } else {
-        echo json_encode(array("status" => "error", "message" => "pertanyaan Sudah Ada", "data" => mysqli_num_rows($result)));
+        echo json_encode(array("status" => "error", "message" => "Gagal Tambah Pertanyaan"));
 }
