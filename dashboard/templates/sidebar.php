@@ -51,6 +51,22 @@
                                                  <span>Help</span>
                                          </a>
                                  </li>
+                                 <li>
+                                         <a class="<?php if ($title == "question") echo 'active' ?>" href="question.php">
+                                                 <span class="nav-link-icon">
+                                                         <i data-feather="message-circle"></i>
+                                                 </span>
+                                                 <span>Question</span>
+                                         </a>
+                                 </li>
+                                 <li>
+                                         <a class="<?php if ($title == "opinion") echo 'active' ?>" href="opinion.php">
+                                                 <span class="nav-link-icon">
+                                                         <i data-feather="message-square"></i>
+                                                 </span>
+                                                 <span>Opinion</span>
+                                         </a>
+                                 </li>
                          </ul>
                  </div>
          </div>

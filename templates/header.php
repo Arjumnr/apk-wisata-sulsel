@@ -16,6 +16,9 @@
                                                                 <a href="index.php">Home</a>
                                                         </li>
                                                         <li>
+                                                                <a href="opinion.php">Opinion</a>
+                                                        </li>
+                                                        <li>
                                                                 <a href="help.php">Help</a>
                                                         </li>
 

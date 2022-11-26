@@ -27,7 +27,7 @@
 <!-- Meta Mask  -->
 <script src="assets/js/vendor/web3.min.js"></script>
 <script src="assets/js/vendor/maralis.js"></script>
-<script src="assets/js/vendor/nft.js"></script>
+<!-- <script src="assets/js/vendor/nft.js"></script> -->
 <script src="assets/twbs-pagination/jquery.twbsPagination.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
 <script>
