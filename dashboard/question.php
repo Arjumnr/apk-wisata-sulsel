@@ -7,6 +7,7 @@ require_once("./templates/sidebar.php");
 
 ?>
 
+
 <!-- Content body -->
 <div class="content-body">
     <!-- Content -->
@@ -80,7 +81,7 @@ require_once("./templates/sidebar.php");
             </div>
         </div>
         <?php
-        // require_once("./controllers/users/form.php");
+        require_once("./controllers/question/form.php");
         ?>
     </div>
     <!-- ./ Content -->
@@ -103,7 +104,7 @@ require_once("./templates/sidebar.php");
         function editForm(id) {
             $.ajax({
                 type: "POST",
-                url: './controllers/users/byId.php',
+                url: './controllers/question/byId.php',
                 data: {
                     id: id
                 },

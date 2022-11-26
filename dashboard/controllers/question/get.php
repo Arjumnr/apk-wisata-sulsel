@@ -1,7 +1,6 @@
 <?php
 require_once("../../../controllers/conn.php");
-$data = many("SELECT * FROM questions WHERE pertanyaan LIKE '%" . $_GET['cari'] . "%' ORDER BY users.id DESC LIMIT " . $_GET['to'] . ", " . $_GET['end'] . "");
-
+$data = many("SELECT * FROM questions WHERE pertanyaan LIKE '%" . $_GET['cari'] . "%' ORDER BY questions.id DESC LIMIT " . $_GET['to'] . ", " . $_GET['end'] . "");
 ?>
 
 <table id="example1" class="table table-striped table-bordered">
