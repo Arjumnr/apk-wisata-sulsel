@@ -73,7 +73,7 @@ require_once("./templates/sidebar.php");
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                         </div>
 
                     </div>

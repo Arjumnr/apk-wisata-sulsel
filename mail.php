@@ -43,7 +43,6 @@ if ($name == "") {
     $headers .= 'cc: nipabali@gmail.com' . "\r\n";
     $headers .= 'bcc: nipabali@gmail.com' . "\r\n";
     mail($to, $subject, $_message, $headers, '-f nipabali@gmail.com');
-
     $msg['success'] = "\n Email has been sent successfully.";
     $msg['code'] = TRUE;
 }
