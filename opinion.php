@@ -31,7 +31,7 @@ $questions = many("SELECT * FROM questions ORDER BY id ASC");
             <div class="offset-lg-2 col-lg-8">
                 <div class="condition-wrapper">
 
-                    <form action="">
+                    <form action="" id="valForm" method="POST">
                         <div class="form-group mb-3">
                             <?php
                             $i = 0;
@@ -39,31 +39,36 @@ $questions = many("SELECT * FROM questions ORDER BY id ASC");
                                 if ($i <= count($questions)) : ?>
                                     <tr>
                                         <h4><?= $i + 1, ". ", $question['pertanyaan']; ?></h4>
+                                        <input type="text" hidden name="total" value=<?= count($questions) ?>>
 
                                         <div class="d-flex justify-content-around">
                                             <div class="form-check">
-                                                <input type="radio" class="form-check-input" id=<?= $i + 5 ?> name="tes<?= $i; ?>" value="5">
-                                                <label class="form-check-label" for=<?= $i + 5 ?>> 5 </label>
+                                                <input type="radio" class="form-check-input" id=<?= $i + 500 ?> name="Q<?= $i; ?>" value="5">
+                                                <label class="form-check-label" for=<?= $i + 500 ?>> 5 </label>
+
                                             </div>
 
                                             <div class="form-check">
-                                                <input type="radio" class="form-check-input" id=<?= $i + 10 ?> name="tes<?= $i; ?>" value="4">
-                                                <label class="form-check-label" for=<?= $i + 10 ?>> 4 </label>
+                                                <input type="radio" class="form-check-input" id=<?= $i + 400 ?> name="Q<?= $i; ?>" value="4">
+                                                <label class="form-check-label" for=<?= $i + 400 ?>> 4 </label>
+
                                             </div>
 
                                             <div class="form-check">
-                                                <input type="radio" class="form-check-input" id=<?= $i + 15 ?> name="tes<?= $i; ?>" value="3">
-                                                <label class="form-check-label" for=<?= $i + 15 ?>> 3 </label>
+                                                <input type="radio" class="form-check-input" id=<?= $i + 300 ?> name="Q<?= $i; ?>" value="3">
+                                                <label class="form-check-label" for=<?= $i + 300 ?>> 3 </label>
+
                                             </div>
 
                                             <div class="form-check">
-                                                <input type="radio" class="form-check-input" id=<?= $i + 20 ?> name="tes<?= $i; ?>" value="2">
-                                                <label class="form-check-label" for=<?= $i + 20 ?>> 2 </label>
+                                                <input type="radio" class="form-check-input" id=<?= $i + 200 ?> name="Q<?= $i; ?>" value="2">
+                                                <label class="form-check-label" for=<?= $i + 200 ?>> 2 </label>
+
                                             </div>
 
                                             <div class="form-check">
-                                                <input type="radio" class="form-check-input" id=<?= $i + 25 ?> name="tes<?= $i; ?>" value="1">
-                                                <label class="form-check-label" for=<?= $i + 25 ?>> 1 </label>
+                                                <input type="radio" class="form-check-input" id=<?= $i + 100 ?> name="Q<?= $i; ?>" value="1">
+                                                <label class="form-check-label" for=<?= $i + 100 ?>> 1 </label>
                                             </div>
                                         </div>
                                         <br>
@@ -83,11 +88,50 @@ $questions = many("SELECT * FROM questions ORDER BY id ASC");
     </div>
 </div>
 
-</div>
-<script>
+<?php
+require_once("./templates/footer.php")
+?>
+<script type="text/javascript">
     function kirim() {
-        var jawaban = document.getElementById('jawaban').value;
-        console.log(jawaban);
+        var valForm = document.forms["valForm"];
+        var total = document.getElementsByName("total")[0].value;
+        var dataRB = [];
+        for (var i = 0; i < total; i++) {
+            var rb = valForm["Q" + i];
+            for (var j = 0; j < rb.length; j++) {
+                if (rb[j].checked) {
+                    dataRB.push(rb[j].value);
+                }
+            }
+        }
+
+        console.log(dataRB);
+        if (dataRB.length == total) {
+            $.ajax({
+                url: "./controllers/responden.php",
+                type: "POST",
+                data: {
+                    "responden": dataRB
+                },
+                success: function(data) {
+                   Swal.fire({
+                        icon: 'success',
+                        title: 'Terima Kasih',
+                        text: 'Data berhasil dikirim!',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "./index.php";
+                        }
+                    })
+                }
+            });
+        } else {
+           Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Silahkan isi semua pertanyaan!',
+            })
+        }
     }
 </script>
 
