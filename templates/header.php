@@ -18,9 +18,9 @@
                                                         <li>
                                                                 <a href="opinion.php">Opinion</a>
                                                         </li>
-                                                        <li>
+                                                        <!-- <li>
                                                                 <a href="help.php">Help</a>
-                                                        </li>
+                                                        </li> -->
 
                                                 </ul>
                                                 <!-- End Mainmanu Nav -->

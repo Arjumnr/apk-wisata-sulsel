@@ -5,6 +5,8 @@ require_once './controllers/conn.php';
 require_once './templates/header.php';
 $questions = many("SELECT * FROM questions ORDER BY id ASC");
 ?>
+
+
 <!-- start page title area -->
 <div class="rn-breadcrumb-inner ptb--30">
     <div class="container">
@@ -31,38 +33,48 @@ $questions = many("SELECT * FROM questions ORDER BY id ASC");
 
                     <form action="">
                         <div class="form-group mb-3">
-                            <?php foreach ($questions as $question => $v) : ?>
-                                <h3><?= $v['pertanyaan']; ?></h3>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-check">
-                                            <input type="radio" class="form-check-input" id="btn1" name="optradio" value="good">
-                                            <label class="form-check-label" for="btn1"> 5 </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input type="radio" class="form-check-input" id="btn2" name="optradio" value="good">
-                                            <label class="form-check-label" for="btn2"> 4 </label>
-                                        </div>
-                                        <div class="fosrm-check">
-                                            <input type="radio" class="form-check-input" id="btn3" name="optradio" value="good">
-                                            <label class="form-check-label" for="btn3"> 3 </label>
-                                        </div>
+                            <?php
+                            $i = 0;
+                            foreach ($questions as $question) :
+                                if ($i <= count($questions)) : ?>
+                                    <tr>
+                                        <h4><?= $i + 1, ". ", $question['pertanyaan']; ?></h4>
 
-                                        <div class="form-check">
-                                            <input type="radio" class="form-check-input" id="btn4" name="optradio" value="good">
-                                            <label class="form-check-label" for="btn4"> 2 </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input type="radio" class="form-check-input" id="btn1" name="optradio" value="good">
-                                            <label class="form-check-label" for="btn1"> 1 </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
+                                        <div class="d-flex justify-content-around">
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id=<?= $i + 5 ?> name="tes<?= $i; ?>" value="5">
+                                                <label class="form-check-label" for=<?= $i + 5 ?>> 5 </label>
+                                            </div>
 
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id=<?= $i + 10 ?> name="tes<?= $i; ?>" value="4">
+                                                <label class="form-check-label" for=<?= $i + 10 ?>> 4 </label>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id=<?= $i + 15 ?> name="tes<?= $i; ?>" value="3">
+                                                <label class="form-check-label" for=<?= $i + 15 ?>> 3 </label>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id=<?= $i + 20 ?> name="tes<?= $i; ?>" value="2">
+                                                <label class="form-check-label" for=<?= $i + 20 ?>> 2 </label>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id=<?= $i + 25 ?> name="tes<?= $i; ?>" value="1">
+                                                <label class="form-check-label" for=<?= $i + 25 ?>> 1 </label>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </tr>
+                                <?php endif; ?>
+                                <?php $i++; ?>
+                            <?php
+                            endforeach; ?>
                         </div>
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn btn-primary" onclick="kirim()">Submit</button>
                         </div>
                 </div>
                 </form>
@@ -72,6 +84,12 @@ $questions = many("SELECT * FROM questions ORDER BY id ASC");
 </div>
 
 </div>
+<script>
+    function kirim() {
+        var jawaban = document.getElementById('jawaban').value;
+        console.log(jawaban);
+    }
+</script>
 
 <?php
 require_once("./templates/footer.php")

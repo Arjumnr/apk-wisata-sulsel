@@ -43,14 +43,14 @@
                                                  <span>Comments</span>
                                          </a>
                                  </li>
-                                 <li>
+                                 <!-- <li>
                                          <a class="<?php if ($title == "help") echo 'active' ?>" href="help.php">
                                                  <span class="nav-link-icon">
                                                          <i data-feather="mail"></i>
                                                  </span>
                                                  <span>Help</span>
                                          </a>
-                                 </li>
+                                 </li> -->
                                  <li>
                                          <a class="<?php if ($title == "question") echo 'active' ?>" href="question.php">
                                                  <span class="nav-link-icon">
@@ -60,11 +60,11 @@
                                          </a>
                                  </li>
                                  <li>
-                                         <a class="<?php if ($title == "opinion") echo 'active' ?>" href="opinion.php">
+                                         <a class="<?php if ($title == "responden") echo 'active' ?>" href="responden.php">
                                                  <span class="nav-link-icon">
                                                          <i data-feather="message-square"></i>
                                                  </span>
-                                                 <span>Opinion</span>
+                                                 <span>Responden</span>
                                          </a>
                                  </li>
                          </ul>
