@@ -3,8 +3,6 @@ $title = "question";
 require_once("./templates/_header.php");
 require_once("./templates/header.php");
 require_once("./templates/sidebar.php");
-
-
 ?>
 
 

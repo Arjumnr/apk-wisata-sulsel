@@ -1,10 +1,8 @@
 <?php
-$title = "opinion";
+$title = "responden";
 require_once("./templates/_header.php");
 require_once("./templates/header.php");
 require_once("./templates/sidebar.php");
-
-
 ?>
 
 
@@ -29,11 +27,13 @@ require_once("./templates/sidebar.php");
                         </ol>
                     </nav>
                 </div>
-                <div class="mt-2">
-                    <button type="button" onclick="createForm()" class="btn btn-primary btn-rounded">Tambah</button>
-                </div>
+
             </div>
         </div>
+
+       
+
+
 
         <div class="row">
             <div class="col-md-12">
@@ -80,9 +80,7 @@ require_once("./templates/sidebar.php");
                 </div>
             </div>
         </div>
-        <?php
-        require_once("./controllers/users/form.php");
-        ?>
+
     </div>
     <!-- ./ Content -->
     <?php
@@ -90,47 +88,14 @@ require_once("./templates/sidebar.php");
     ?>
 
     <script type="text/javascript">
-        function createForm() {
-            $.ajax({}).then(function(res) {
-                console.log("A")
-                $('#ajaxModal').modal('show');
-                $('#formsKu').trigger("reset");
-                $("#title").html("Input Data User");
-                $("#saveBtn").show();
-                $("#updateBtn").hide();
-            })
-        }
-
-        function editForm(id) {
-            $.ajax({
-                type: "POST",
-                url: './controllers/users/byId.php',
-                data: {
-                    id: id
-                },
-            }).then(function(response) {
-                var jsonData = JSON.parse(response);
-                if (jsonData.status == "success") {
-                    $('#ajaxModal').modal('show');
-                    $('#title').html('Update Data');
-                    $('#username').val(jsonData.data.username);
-                    $('#role').val(jsonData.data.role).trigger('change');
-                    $('#password').hide();
-                    $('#formPassword').hide();
-                    $('#id').val(jsonData.data.id);
-                    $("#saveBtn").hide();
-                    $("#updateBtn").show();
-                } else if (jsonData.status == "error") {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: jsonData.message,
-                    })
-                } else {
-                    Swal.fire(
-                        'Invalid Credentials!',
-                    )
-                }
-            });
-        };
+        // function createForm() {
+        //     $.ajax({}).then(function(res) {
+        //         console.log("A")
+        //         $('#ajaxModal').modal('show');
+        //         $('#formsKu').trigger("reset");
+        //         $("#title").html("Input Data User");
+        //         $("#saveBtn").show();
+        //         $("#updateBtn").hide();
+        //     })
+        // }
     </script>
