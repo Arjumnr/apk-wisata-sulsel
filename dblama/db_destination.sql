@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Jan 2023 pada 03.52
--- Versi server: 10.4.22-MariaDB
--- Versi PHP: 8.0.13
+-- Generation Time: Jun 04, 2022 at 06:22 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE `comments` (
@@ -35,7 +35,7 @@ CREATE TABLE `comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `comments`
+-- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`id`, `comment`, `destination_id`, `user_id`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `comments` (`id`, `comment`, `destination_id`, `user_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `contents`
+-- Table structure for table `contents`
 --
 
 CREATE TABLE `contents` (
@@ -54,7 +54,7 @@ CREATE TABLE `contents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `contents`
+-- Dumping data for table `contents`
 --
 
 INSERT INTO `contents` (`id`, `setting`, `content`) VALUES
@@ -63,7 +63,7 @@ INSERT INTO `contents` (`id`, `setting`, `content`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `destinations`
+-- Table structure for table `destinations`
 --
 
 CREATE TABLE `destinations` (
@@ -80,7 +80,7 @@ CREATE TABLE `destinations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `destinations`
+-- Dumping data for table `destinations`
 --
 
 INSERT INTO `destinations` (`id`, `name`, `slug`, `description`, `address`, `type_id`, `open_hour`, `close_hour`, `open_day`, `entry_fee`) VALUES
@@ -95,7 +95,7 @@ INSERT INTO `destinations` (`id`, `name`, `slug`, `description`, `address`, `typ
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `destination_log`
+-- Table structure for table `destination_log`
 --
 
 CREATE TABLE `destination_log` (
@@ -106,7 +106,7 @@ CREATE TABLE `destination_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `destination_log`
+-- Dumping data for table `destination_log`
 --
 
 INSERT INTO `destination_log` (`id`, `user_id`, `destination_id`, `created_at`) VALUES
@@ -159,7 +159,7 @@ INSERT INTO `destination_log` (`id`, `user_id`, `destination_id`, `created_at`) 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `images`
+-- Table structure for table `images`
 --
 
 CREATE TABLE `images` (
@@ -169,7 +169,7 @@ CREATE TABLE `images` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `images`
+-- Dumping data for table `images`
 --
 
 INSERT INTO `images` (`id`, `image`, `destination_id`) VALUES
@@ -185,34 +185,7 @@ INSERT INTO `images` (`id`, `image`, `destination_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `questions`
---
-
-CREATE TABLE `questions` (
-  `id` int(11) NOT NULL,
-  `pertanyaan` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `questions`
---
-
-INSERT INTO `questions` (`id`, `pertanyaan`) VALUES
-(6, 'Saya berpikir akan menggunakan sistem ini lagi'),
-(7, 'Saya merasa sistem ini rumit untuk digunakan'),
-(8, '	Saya merasa sistem ini mudah digunakan'),
-(9, '	Saya membutuhkan bantuan dari orang lain atau teknisi dalam menggunakan sistem ini'),
-(10, '	Saya merasa fitur-fitur sistem ini berjalan dengan semestinya'),
-(11, '	Saya merasa ada banyak hal yang tidak konsisten (tidak serasi pada sistem ini)'),
-(12, '	Saya merasa orang lain akan memahami cara menggunakan sistem ini dengan cepat'),
-(13, 'Saya merasa sistem ini membingungkan'),
-(14, '	Saya merasa tidak ada hambatan dalam menggunakan sistem ini'),
-(15, '	Saya perlu membiasakan diri terlebih dahulu sebelum menggunakan sistem ini');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `recommendations`
+-- Table structure for table `recommendations`
 --
 
 CREATE TABLE `recommendations` (
@@ -222,7 +195,7 @@ CREATE TABLE `recommendations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `recommendations`
+-- Dumping data for table `recommendations`
 --
 
 INSERT INTO `recommendations` (`id`, `user_id`, `destination_id`) VALUES
@@ -231,40 +204,7 @@ INSERT INTO `recommendations` (`id`, `user_id`, `destination_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `responden`
---
-
-CREATE TABLE `responden` (
-  `id` int(11) NOT NULL,
-  `Q1` varchar(11) NOT NULL,
-  `Q2` varchar(11) NOT NULL,
-  `Q3` varchar(11) NOT NULL,
-  `Q4` varchar(11) NOT NULL,
-  `Q5` varchar(11) NOT NULL,
-  `Q6` varchar(11) NOT NULL,
-  `Q7` varchar(11) NOT NULL,
-  `Q8` varchar(11) NOT NULL,
-  `Q9` varchar(11) NOT NULL,
-  `Q10` varchar(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `responden`
---
-
-INSERT INTO `responden` (`id`, `Q1`, `Q2`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q9`, `Q10`) VALUES
-(1, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'),
-(2, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'),
-(3, '5', '4', '3', '2', '1', '5', '4', '3', '2', '1'),
-(4, '2', '2', '2', '2', '2', '2', '2', '2', '2', '2'),
-(5, '5', '4', '4', '3', '3', '3', '2', '2', '3', '3'),
-(6, '5', '4', '3', '3', '2', '2', '2', '2', '2', '3'),
-(7, '5', '4', '4', '3', '2', '1', '1', '1', '1', '1');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `types`
+-- Table structure for table `types`
 --
 
 CREATE TABLE `types` (
@@ -273,7 +213,7 @@ CREATE TABLE `types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `types`
+-- Dumping data for table `types`
 --
 
 INSERT INTO `types` (`id`, `type`) VALUES
@@ -283,7 +223,7 @@ INSERT INTO `types` (`id`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -294,7 +234,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
@@ -306,7 +246,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
 --
 
 --
--- Indeks untuk tabel `comments`
+-- Indexes for table `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
@@ -314,20 +254,20 @@ ALTER TABLE `comments`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indeks untuk tabel `contents`
+-- Indexes for table `contents`
 --
 ALTER TABLE `contents`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `setting` (`setting`);
 
 --
--- Indeks untuk tabel `destinations`
+-- Indexes for table `destinations`
 --
 ALTER TABLE `destinations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `destination_log`
+-- Indexes for table `destination_log`
 --
 ALTER TABLE `destination_log`
   ADD PRIMARY KEY (`id`),
@@ -335,20 +275,14 @@ ALTER TABLE `destination_log`
   ADD KEY `destination_id` (`destination_id`);
 
 --
--- Indeks untuk tabel `images`
+-- Indexes for table `images`
 --
 ALTER TABLE `images`
   ADD PRIMARY KEY (`id`),
   ADD KEY `destination_id` (`destination_id`);
 
 --
--- Indeks untuk tabel `questions`
---
-ALTER TABLE `questions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `recommendations`
+-- Indexes for table `recommendations`
 --
 ALTER TABLE `recommendations`
   ADD PRIMARY KEY (`id`),
@@ -356,112 +290,94 @@ ALTER TABLE `recommendations`
   ADD KEY `destination_id` (`destination_id`);
 
 --
--- Indeks untuk tabel `responden`
---
-ALTER TABLE `responden`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `types`
+-- Indexes for table `types`
 --
 ALTER TABLE `types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `comments`
+-- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `contents`
+-- AUTO_INCREMENT for table `contents`
 --
 ALTER TABLE `contents`
   MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT untuk tabel `destinations`
+-- AUTO_INCREMENT for table `destinations`
 --
 ALTER TABLE `destinations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `destination_log`
+-- AUTO_INCREMENT for table `destination_log`
 --
 ALTER TABLE `destination_log`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
--- AUTO_INCREMENT untuk tabel `images`
+-- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `questions`
---
-ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT untuk tabel `recommendations`
+-- AUTO_INCREMENT for table `recommendations`
 --
 ALTER TABLE `recommendations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT untuk tabel `responden`
---
-ALTER TABLE `responden`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT untuk tabel `types`
+-- AUTO_INCREMENT for table `types`
 --
 ALTER TABLE `types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `comments`
+-- Constraints for table `comments`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`destination_id`) REFERENCES `destinations` (`id`),
   ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ketidakleluasaan untuk tabel `destination_log`
+-- Constraints for table `destination_log`
 --
 ALTER TABLE `destination_log`
   ADD CONSTRAINT `destination_log_ibfk_2` FOREIGN KEY (`destination_id`) REFERENCES `destinations` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ketidakleluasaan untuk tabel `images`
+-- Constraints for table `images`
 --
 ALTER TABLE `images`
   ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`destination_id`) REFERENCES `destinations` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `recommendations`
+-- Constraints for table `recommendations`
 --
 ALTER TABLE `recommendations`
   ADD CONSTRAINT `recommendations_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
